@@ -59,7 +59,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, :notice => 'User was successfully created.' }
         format.json { render :json => @user, :status => :created, :location => @user }
       else
-        format.html { render :action => "new", :notice => 'Votre inscription a échoué. Merci de vérifier votre formulaire.' }
+        format.html { render :action => "new", :notice => 'Votre inscription a echoue. Merci de verifier votre formulaire.' }
         format.json { render :json => @user.errors, :status => :unprocessable_entity }
       end
     end
