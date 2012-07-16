@@ -1,0 +1,75 @@
+<% ajd = @dispo.jour.to_date.to_s(:short) %>
+<% if @dispo.jour.wday == 6 %>
+<div class="alert alert-info">
+	Attention, le <%= ajd %>, c'est un samedi ! <%= link_to 'Passer directement au lundi', new_dispo_path(:day => @dispo.jour.to_date+2) %>
+	</div>
+<% end %>
+<% if @dispo.jour.wday == 0 %>
+<div class="alert alert-info">
+	Attention, le <%= ajd %>, c'est un dimanche ! <%= link_to 'Passer directement au lundi', new_dispo_path(:day => @dispo.jour.to_date+1) %>
+	</div>
+<% end %>
+
+<% if current_user.dispos.of_day(@date).any? %>
+	<div id="deja_dispo" class="well">
+		Le <%= ajd %>, tu es : 
+		<% current_user.dispos.of_day(@date).each do |truc| %>
+		 	<span class="label label-info"><%= truc.statut.intitule %></span>
+			<br /><br />
+				<div id="proposer_modifier" class="controls">
+					<%= link_to dispo_path(truc.id ), options = { :confirm => 'Supprimer cette valeur ?', :method => :delete, :class => "btn btn-danger btn-small",  } do %>
+					Supprimer cette valeur
+					<i class="icon-trash"></i>
+					<% end %>
+				</div>
+		<% end %>
+	</div>	
+	
+<% else %>
+
+<%= form_for(@dispo, :html => { :class => "well" } ) do |f| %>
+  <% if @dispo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dispo.errors.count, "error") %> prohibited this dispo from being saved:</h2>
+
+      <ul>
+      <% @dispo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 	<fieldset>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+  	<div>
+	<%= f.hidden_field :jour %>
+  </div>
+   <div class="control-group">
+	<label class="control-label"><%= current_user.prenom %>, le <%= ajd  %>, tu es :</label>
+		<div class="controls">
+			<% @statuts.each do |statut| %>
+			<label class="radio">	
+					<%= f.radio_button :statut_id, statut.id %> <%= statut.intitule %>	
+				</label>
+			<% end %>	
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<label class="control-label" for="textarea">Informations complémentaires (projet ...) :</label>
+				<%= f.text_area :comments, :rows => 2, :class => "input-xlarge" %>
+		</div>
+	</div>
+  <div class="controls">
+    <%= f.submit 'Enregistrer et passer au jour suivant', :class => "btn btn-success" %>
+  </div>
+ </fieldset>
+</div>
+<div>
+	<%= link_to '«', new_dispo_path(:day => @dispo.jour.yesterday.to_date) %>
+	<%= ajd %>
+	<%= link_to '»' , new_dispo_path(:day => @dispo.jour.tomorrow.to_date) %>
+
+<% end %>
+<% end %>
+

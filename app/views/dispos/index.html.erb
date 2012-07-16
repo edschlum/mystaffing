@@ -1,0 +1,63 @@
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "<", :day => (@date.beginning_of_month-1) %>
+    <%=h @date.strftime("%B %Y") %>
+    <%= link_to ">", :day => (@date.end_of_month+1) %>
+  </h2>
+  <%= calendar_for @dispos, :year => @date.year, :month => @date.month do |calendar| %>
+    <%= calendar.head('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi') %>
+    <%= calendar.day(:day_method => :jour) do |date, dispos| %>
+      <%= date.day %>
+      <ul>
+        <% for dispo in dispos %>	
+			<% if dispo.statut.id == 1 %>
+          		<li><span class="label label-success">Staffé</span>
+      				<%= link_to dispo, options = { :confirm => 'Supprimer cette valeur ?', :method => :delete }, html_options = { :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
+					<i class="icon-remove" title="Supprimer cette valeur"></i>
+					<% end %>
+				</li>
+				<li>
+					<%= dispo.comments %>
+				</li>
+			<% end %>
+			
+			<% if dispo.statut.id == 2 %>
+          		<li><span class="label label-important">Dispo</span>
+      				<%= link_to dispo, options = { :confirm => 'Supprimer cette valeur ?', :method => :delete }, html_options = { :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
+				<i class="icon-remove" title="Supprimer cette valeur"></i>
+					<% end %>
+				</li>
+				<li>
+					<%= dispo.comments %>
+				</li>
+			<% end %>
+			
+			<% if dispo.statut.id == 3 %>
+          		<li><span class="label label-warning">Ne sait pas</span>			
+	      			<%= link_to dispo, options = { :confirm => 'Supprimer cette valeur ?', :method => :delete }, html_options = { :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
+					<i class="icon-remove" title="Supprimer cette valeur"></i>
+					<% end %>
+				</li>
+				<li>
+					<%= dispo.comments %>
+				</li>
+			<% end %>
+
+			<% if dispo.statut.id == 4 %>
+          		<li><span class="label">Malade</span>			
+	      			<%= link_to dispo, options = { :confirm => 'Supprimer cette valeur ?', :method => :delete }, html_options = { :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
+					<i class="icon-remove" title="Supprimer cette valeur"></i>
+					<% end %>
+				</li>
+				<li>
+					<%= dispo.comments %>
+				</li>
+			<% end %>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+<br />
+
+<%= link_to 'New Dispo', new_dispo_path %>

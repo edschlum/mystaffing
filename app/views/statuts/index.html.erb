@@ -1,0 +1,25 @@
+<h1>Listing statuts</h1>
+
+<table>
+  <tr>
+    <th>Intitule</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @statuts.each do |statut| %>
+  <tr>
+    <td><%= statut.intitule %></td>
+    <td><%= link_to 'Show', statut %></td>
+    <td><%= link_to 'Edit', edit_statut_path(statut) %></td>
+    <td><%= link_to 'Destroy', statut, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+
+<%= link_to 'New Statut', new_statut_path %>

@@ -1,0 +1,18 @@
+<%- model_class = @user.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:nom) %>:</strong></dt>
+  <dd><%= @user.nom %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:prenom) %>:</strong></dt>
+  <dd><%= @user.prenom %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @user.email %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('Log in', :default => t("helpers.links.back")),
+              log_in_path, :class => 'btn'  %>
+</div>

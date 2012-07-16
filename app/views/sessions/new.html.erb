@@ -1,0 +1,11 @@
+
+<div class="container">
+	<h3>Identifiez-vous</h3>
+<%= form_tag (sessions_path, :class => "form-inline") do %>
+
+  		<%= text_field_tag :email, params[:email], :class => 'text_field', :placeholder => "prenom.nom@entreprise.com" %>
+    	<%= password_field_tag :password, nil, :class => 'text_field', :placeholder => "Mot de passe" %>
+	<%= submit_tag "Connexion", :class => "btn" %>
+
+<% end %>
+</div>

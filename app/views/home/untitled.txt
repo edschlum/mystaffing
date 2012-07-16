@@ -1,0 +1,28 @@
+<% @totos.each do |toto| %>
+  <tr>
+    <td><%= toto.statut.intitule %></td>
+	<td> 
+	
+
+	</td>
+	
+	
+  </tr>
+<% end %>
+
+
+<tr>
+	<% @totos.each do |toto| %>
+		<% @users.each do |user| %>
+	<td> 
+		<% while @totos.user.nom = user.nom %>
+		<%= toto.statut.intitule %>
+		<% end %>
+	</td>	
+		<% end %>
+	<% end %>
+</tr>
+
+	<% user.statut.where(dispo.jour = 25juin )%>
+	
+	<%= truc.jour.to_date().to_s(:short) %>
