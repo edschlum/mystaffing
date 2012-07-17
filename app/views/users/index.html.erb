@@ -33,8 +33,8 @@
 
         <td>
 			<% user.dispos.of_day(@day).each do |truc| %>	
-					<% if truc.statut.id == 1 %>
-							<% if truc.comments.any? %>
+					<% if truc.statut.id == Statut.first.id %>
+							<% if truc.comments.many? %>
 								<%= link_to "#", html_options = { :title => truc.comments, :rel => "tooltip" } do %>
 									<span class="label label-success"><%= truc.statut.intitule %></span>
 								<% end %>
