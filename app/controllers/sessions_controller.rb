@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect_to saisie_url, :notice => "Bienvenue"
+      redirect_to saisie_url, :notice => "Bienvenue !"
     else
       flash.now.alert = "Invalid email or password"
       render "new"

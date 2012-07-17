@@ -72,10 +72,11 @@
  </fieldset>
 </div>
 <div>
-	<%= link_to '«', new_dispo_path(:day => @dispo.jour.yesterday.to_date) %>
-	<%= ajd %>
-	<%= link_to '»' , new_dispo_path(:day => @dispo.jour.tomorrow.to_date) %>
-
+	<div id="next_days" class="btn-group">
+		<%= link_to '«', new_dispo_path(:day => @dispo.jour.yesterday.to_date), :class => "btn" %>
+		<button class="btn"><%= ajd %></button>
+		<%= link_to '»' , new_dispo_path(:day => @dispo.jour.tomorrow.to_date), :class => "btn" %>
+	</div>
 <% end %>
 <% end %>
 
