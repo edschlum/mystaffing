@@ -56,7 +56,10 @@
 	<div class="container">
 		<div id="user_nav">
 			<% flash.each do |name, msg| %>
-			  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+			<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+			
+			  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+			</div>
 			<% end %>	
 		  <% if current_user %>	
 			<%= yield %>

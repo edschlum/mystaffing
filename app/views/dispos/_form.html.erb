@@ -21,6 +21,12 @@
 					Supprimer cette valeur
 					<i class="icon-trash"></i>
 					<% end %>
+					<br /><br />
+				</div>
+				<div id="next_days" class="controls">
+					<%= link_to '«', new_dispo_path(:day => @dispo.jour.yesterday.to_date) %>
+					<%= ajd %>
+					<%= link_to '»' , new_dispo_path(:day => @dispo.jour.tomorrow.to_date) %>
 				</div>
 		<% end %>
 	</div>	

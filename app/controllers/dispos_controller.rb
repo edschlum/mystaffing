@@ -57,15 +57,20 @@ class DisposController < ApplicationController
   # POST /dispos
   # POST /dispos.json
   def create
+    
     @date = params[:day] ? Date.parse(params[:day]) : Date.current()
     
     @dispo = Dispo.new(params[:dispo])
     @statuts = Statut.all
+    
     respond_to do |format|
       if @dispo.save
+        flash[:notice] = "OK !"
         format.html { redirect_to new_dispo_path(:day => @dispo.jour.tomorrow.to_date) }
         format.json { render :json => @dispo, :status => :created, :location => @dispo }
+        
       else
+        flash[:error] = "Une erreur est survenue"
         format.html { render :action => "new" }
         format.json { render :json => @dispo.errors, :status => :unprocessable_entity }
       end
@@ -94,7 +99,7 @@ class DisposController < ApplicationController
   def destroy
     @dispo = Dispo.find(params[:id])
     @dispo.destroy
-
+    flash[:notice] = "Supprimée!"
     respond_to do |format|
       format.html { redirect_to new_dispo_path(:day => @dispo.jour.to_date) }
       format.json { head :no_content }
