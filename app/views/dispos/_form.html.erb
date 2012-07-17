@@ -1,18 +1,18 @@
-<% ajd = @dispo.jour.to_date.to_s(:short) %>
+<% ajd = @dispo.jour%>
 <% if @dispo.jour.wday == 6 %>
 <div class="alert alert-info">
-	Attention, le <%= ajd %>, c'est un samedi ! <%= link_to 'Passer directement au lundi', new_dispo_path(:day => @dispo.jour.to_date+2) %>
+	Attention, le <%= ajd.to_date.to_s(:short)  %>, c'est un samedi ! <%= link_to 'Passer directement au lundi', new_dispo_path(:day => @dispo.jour.to_date+2) %>
 	</div>
 <% end %>
 <% if @dispo.jour.wday == 0 %>
 <div class="alert alert-info">
-	Attention, le <%= ajd %>, c'est un dimanche ! <%= link_to 'Passer directement au lundi', new_dispo_path(:day => @dispo.jour.to_date+1) %>
+	Attention, le <%= ajd.to_date.to_s(:short) %>, c'est un dimanche ! <%= link_to 'Passer directement au lundi', new_dispo_path(:day => @dispo.jour.to_date+1) %>
 	</div>
 <% end %>
 
 <% if current_user.dispos.of_day(@date).any? %>
 	<div id="deja_dispo" class="well">
-		Le <%= ajd %>, tu es : 
+		Le <%= ajd.to_time.strftime("%a %d %b") %>, tu es : 
 		<% current_user.dispos.of_day(@date).each do |truc| %>
 		 	<span class="label label-info"><%= truc.statut.intitule %></span>
 			<br /><br />
@@ -25,7 +25,7 @@
 				</div>
 				<div id="next_days" class="btn-group">
 					<%= link_to '«', new_dispo_path(:day => @dispo.jour.yesterday.to_date), :class => "btn" %>
-					<button class="btn"><%= ajd %></button>
+					<button class="btn"><%= ajd.to_time.strftime("%a %d %b") %></button>
 					<%= link_to '»' , new_dispo_path(:day => @dispo.jour.tomorrow.to_date), :class => "btn" %>
 				</div>
 		<% end %>
@@ -51,7 +51,7 @@
 	<%= f.hidden_field :jour %>
   </div>
    <div class="control-group">
-	<label class="control-label"><%= current_user.prenom %>, le <%= ajd  %>, tu es :</label>
+	<label class="control-label"><%= current_user.prenom %>, le <%= ajd.to_time.strftime("%A %d %b")  %>, tu es :</label>
 		<div class="controls">
 			<% @statuts.each do |statut| %>
 			<label class="radio">	
@@ -74,7 +74,7 @@
 <div>
 	<div id="next_days" class="btn-group">
 		<%= link_to '«', new_dispo_path(:day => @dispo.jour.yesterday.to_date), :class => "btn" %>
-		<button class="btn"><%= ajd %></button>
+		<button class="btn"><%= ajd.to_time.strftime("%a %d %b") %></button>
 		<%= link_to '»' , new_dispo_path(:day => @dispo.jour.tomorrow.to_date), :class => "btn" %>
 	</div>
 <% end %>

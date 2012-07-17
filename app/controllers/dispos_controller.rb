@@ -70,8 +70,8 @@ class DisposController < ApplicationController
         format.json { render :json => @dispo, :status => :created, :location => @dispo }
         
       else
-        flash[:error] = "Une erreur est survenue"
-        format.html { render :action => "new" }
+        flash[:error] = "Merci de verifier votre formulaire."
+        format.html { redirect_to new_dispo_path(:day => @dispo.jour.to_date) }
         format.json { render :json => @dispo.errors, :status => :unprocessable_entity }
       end
       
