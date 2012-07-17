@@ -12,7 +12,7 @@
         <% for dispo in dispos %>	
 			<% if dispo.statut.id == Statut.first.id %>
           		<li><span class="label label-success">Staffé</span>
-      				<%= link_to dispo, options = { :confirm => 'Supprimer cette valeur ?', :method => :delete }, html_options = { :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
+      				<%= link_to '/myself', options = { :confirm => 'Supprimer cette valeur ?', :method => :delete, :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
 					<i class="icon-remove" title="Supprimer cette valeur"></i>
 					<% end %>
 				</li>

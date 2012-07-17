@@ -3,7 +3,7 @@ class Dispo < ActiveRecord::Base
   belongs_to :user
   belongs_to :statut
   
-  validates_presence_of :statut_id
+  validates_presence_of :statut_id, :message => "Merci de saisir une dispo !"
 
   
   scope :of_day, lambda { |day| where(:jour => day.beginning_of_day..day.end_of_day) }

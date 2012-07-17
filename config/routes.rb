@@ -5,6 +5,7 @@ Applistaff::Application.routes.draw do
   get "about/index"
   get "home/index"
   get "dispos/index"
+  get "users/edit"
   
   get "log_in" => "sessions#new", :as => "log_in"
   get "log_out" => "sessions#destroy", :as => "log_out"

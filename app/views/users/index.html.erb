@@ -27,7 +27,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.nom %> <%= user.prenom %> <%= link_to user_path(user), html_options = { :title => "Modifier l'utilisateur", :rel => "tooltip" } do %><i class="icon-pencil"></i><% end %></td>
+        <td><%= user.nom %> <%= user.prenom %> <%= link_to edit_user_path(user), html_options = { :title => "Modifier l'utilisateur", :rel => "tooltip" } do %><i class="icon-pencil"></i><% end %></td>
 		<% 5.times do |a|  %>
 		<% @day = @lundi + a %>
 

@@ -99,7 +99,7 @@ class DisposController < ApplicationController
   def destroy
     @dispo = Dispo.find(params[:id])
     @dispo.destroy
-    flash[:notice] = "Supprimée!"
+    flash[:notice] = "Supprimee!"
     respond_to do |format|
       format.html { redirect_to new_dispo_path(:day => @dispo.jour.to_date) }
       format.json { head :no_content }
