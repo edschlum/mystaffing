@@ -33,43 +33,44 @@
 
         <td>
 			<% user.dispos.of_day(@day).each do |truc| %>	
-					<% if truc.statut.id == Statut.first.id %>
-						<% if truc.comments.empty? %>
-							<span class="label label-success"><%= truc.statut.intitule %></span>
-						<% end %>
+				<% if truc.statut.id == Statut.first.id %>
+					<% if truc.comments.empty? %>
+						<span class="label label-success"><%= truc.statut.intitule %></span>	
 					<% else %>
 						<%= link_to "#", html_options = { :title => truc.comments, :rel => "tooltip" } do %>
-						<span class="label label-success"><%= truc.statut.intitule %></span>		
-					<% end %>
-					
-					<% if truc.statut.id == Statut.first.id+1 %>
-						<% if truc.comments.empty? %>
-							<%= link_to "#", html_options = { :title => truc.comments, :rel => "tooltip" } do %>
-								<span class="label label-important"><%= truc.statut.intitule %></span>
-							<% end %>
-						<% else %>
-							<span class="label label-important"><%= truc.statut.intitule %></span>
+							<span class="label label-success"><%= truc.statut.intitule %></span>		
 						<% end %>
+					<% end %>	
+				<% end %>
+				
+				<% if truc.statut.id == Statut.first.id+1 %>
+					<% if truc.comments.empty? %>
+						<span class="label label-important"><%= truc.statut.intitule %></span>
+					<% else %>
+						<%= link_to "#", html_options = { :title => truc.comments, :rel => "tooltip" } do %>
+							<span class="label label-important"><%= truc.statut.intitule %></span>
+						<% end %>	
 					<% end %>
-					<% if truc.statut.id == Statut.first.id+2 %>
-						<% if truc.comments.empty? %>
-							<%= link_to "#", html_options = { :title => truc.comments, :rel => "tooltip" } do %>
-								<span class="label label-warning"><%= truc.statut.intitule %></span>
-							<% end %>
-						<% else %>
+				<% end %>
+				<% if truc.statut.id == Statut.first.id+2 %>
+					<% if truc.comments.empty? %>
+						<span class="label label-warning"><%= truc.statut.intitule %></span>
+					<% else %>
+						<%= link_to "#", html_options = { :title => truc.comments, :rel => "tooltip" } do %>
 							<span class="label label-warning"><%= truc.statut.intitule %></span>
 						<% end %>
 					<% end %>
-					<% if truc.statut.id == Statut.first.id+3 %>	
-						<% if truc.comments.empty? %>
-							<%= link_to "#", html_options = { :title => truc.comments, :rel => "tooltip" } do %>
-								<span class="label"><%= truc.statut.intitule %></span>
-							<% end %>
-						<% else %>
+				<% end %>
+				<% if truc.statut.id == Statut.first.id+3 %>	
+					<% if truc.comments.empty? %>
+						<span class="label"><%= truc.statut.intitule %></span>
+					<% else %>
+						<%= link_to "#", html_options = { :title => truc.comments, :rel => "tooltip" } do %>
 							<span class="label"><%= truc.statut.intitule %></span>
 						<% end %>
-					<% end %>					
-				<% end %>
+					<% end %>
+				<% end %>					
+			<% end %>
 			</td>
 		<% end %>
       </tr>

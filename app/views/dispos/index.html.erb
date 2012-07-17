@@ -10,7 +10,7 @@
       <%= date.day %>
       <ul>
         <% for dispo in dispos %>	
-			<% if dispo.statut.id == 1 %>
+			<% if dispo.statut.id == Statut.first.id %>
           		<li><span class="label label-success">Staffé</span>
       				<%= link_to dispo, options = { :confirm => 'Supprimer cette valeur ?', :method => :delete }, html_options = { :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
 					<i class="icon-remove" title="Supprimer cette valeur"></i>
@@ -21,7 +21,7 @@
 				</li>
 			<% end %>
 			
-			<% if dispo.statut.id == 2 %>
+			<% if dispo.statut.id == Statut.first.id+1 %>
           		<li><span class="label label-important">Dispo</span>
       				<%= link_to dispo, options = { :confirm => 'Supprimer cette valeur ?', :method => :delete }, html_options = { :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
 				<i class="icon-remove" title="Supprimer cette valeur"></i>
@@ -32,7 +32,7 @@
 				</li>
 			<% end %>
 			
-			<% if dispo.statut.id == 3 %>
+			<% if dispo.statut.id == Statut.first.id+2 %>
           		<li><span class="label label-warning">Ne sait pas</span>			
 	      			<%= link_to dispo, options = { :confirm => 'Supprimer cette valeur ?', :method => :delete }, html_options = { :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
 					<i class="icon-remove" title="Supprimer cette valeur"></i>
@@ -43,7 +43,7 @@
 				</li>
 			<% end %>
 
-			<% if dispo.statut.id == 4 %>
+			<% if dispo.statut.id == Statut.first.id+3 %>
           		<li><span class="label">Malade</span>			
 	      			<%= link_to dispo, options = { :confirm => 'Supprimer cette valeur ?', :method => :delete }, html_options = { :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
 					<i class="icon-remove" title="Supprimer cette valeur"></i>

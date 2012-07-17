@@ -17,9 +17,7 @@ class UsersController < ApplicationController
       
       
       @nbr_dispos = Dispo.count(:statut_id, :conditions => ['statut_id = ?', '1'])
-    def has_comments?
-     !self.comments.empty?   
-    end
+
     
     respond_to do |format|
       format.html # index.html.erb
