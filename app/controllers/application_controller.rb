@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
       redirect_to log_in_url
     end
   end
+
+  def has_comments?
+   !self.comments.empty?   
+  end
+  
 end

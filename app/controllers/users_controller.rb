@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, :only => [:new, :create, :show]
   # GET /users
   # GET /users.json
+
+  
   def index
     @users = User.order('nom ASC').all
  
@@ -15,10 +17,14 @@ class UsersController < ApplicationController
       
       
       @nbr_dispos = Dispo.count(:statut_id, :conditions => ['statut_id = ?', '1'])
+    def has_comments?
+     !self.comments.empty?   
+    end
     
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @users }
+      
     end
   end
 
