@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-require 'csv'
 
 gem "watu_table_builder", :require => "table_builder"
 
