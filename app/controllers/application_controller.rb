@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
+    @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+    end
   
   def require_login
-    if session[:user_id] == nil
+    if cookies[:auth_token] == nil
       redirect_to log_in_url
     end
   end

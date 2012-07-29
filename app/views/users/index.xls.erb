@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook
+   xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+   xmlns:o="urn:schemas-microsoft-com:office:office"
+   xmlns:x="urn:schemas-microsoft-com:office:excel"
+   xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+   xmlns:html="http://www.w3.org/TR/REC-html40">
+  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+    <Author>Darl McBride</Author>
+    <LastAuthor>Bill Gates</LastAuthor>
+    <Created>2007-03-15T23:04:04Z</Created>
+    <Company>SCO Group, Inc.</Company>
+    <Version>11.8036</Version>
+  </DocumentProperties>
+  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+    <WindowHeight>6795</WindowHeight>
+    <WindowWidth>8460</WindowWidth>
+    <WindowTopX>120</WindowTopX>
+    <WindowTopY>15</WindowTopY>
+    <ProtectStructure>False</ProtectStructure>
+    <ProtectWindows>False</ProtectWindows>
+  </ExcelWorkbook>
+  <Styles>
+    <Style ss:ID="Default" ss:Name="Normal">
+      <Alignment ss:Vertical="Bottom" />
+      <Borders />
+      <Font />
+      <Interior />
+      <NumberFormat />
+      <Protection />
+    </Style>
+    <Style ss:ID="s21">
+      <Font x:Family="Swiss" ss:Bold="1" />
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="Semaine du <%= @lundi.to_date %>">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Nom</Data></Cell>
+        <Cell><Data ss:Type="String"><%= @lundi.to_date %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= @mardi.to_date %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= @mercredi.to_date %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= @jeudi.to_date %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= @vendredi.to_date %></Data></Cell>
+
+      </Row>
+       <% @users.each do |user| %>	 
+	  <Row>
+		<Cell><Data ss:Type="String"><%= user.nom %> <%= user.prenom %></Data></Cell>
+ 		<% 5.times do |a|  %>
+		<% @day = @lundi + a %>
+			<% user.dispos.of_day(@day).each do |truc| %>
+			<Cell><Data ss:Type="String"><%= truc.statut.intitule %></Data></Cell>
+			<% end %>
+		<% end %>
+      </Row>
+       <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

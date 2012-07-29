@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712081852) do
+ActiveRecord::Schema.define(:version => 20120720094543) do
 
   create_table "dispos", :force => true do |t|
     t.datetime "jour"
@@ -30,11 +30,14 @@ ActiveRecord::Schema.define(:version => 20120712081852) do
   create_table "users", :force => true do |t|
     t.string   "nom"
     t.string   "prenom"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
+    t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
 end

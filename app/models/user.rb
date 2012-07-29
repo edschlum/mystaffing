@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :message => "L'email est obligatoire"
   validates_uniqueness_of :email, :message => "Email deja existant"
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  before_create { generate_token(:auth_token) }
   
   scope :of_day, lambda { |day| where(:jour => day.beginning_of_day..day.end_of_day) }
   
@@ -34,5 +35,18 @@ class User < ActiveRecord::Base
           self.password_salt = BCrypt::Engine.generate_salt
           self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
         end
+    end
+    
+    def send_password_reset
+      generate_token(:password_reset_token)
+      self.password_reset_sent_at = Time.zone.now
+      save!
+      UserMailer.password_reset(self).deliver
+    end    
+    
+    def generate_token(column)
+      begin
+        self[column] = SecureRandom.base64.tr("+/", "-_")
+      end while User.exists?(column => self[column])
     end
 end

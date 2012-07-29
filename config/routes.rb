@@ -1,4 +1,6 @@
 Applistaff::Application.routes.draw do
+  get "password_resets/new"
+
   get "sessions/new"
 
   get "about/index"
@@ -24,6 +26,8 @@ Applistaff::Application.routes.draw do
   resources :sessions
   
   resources :about
+  
+  resources :password_resets
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
