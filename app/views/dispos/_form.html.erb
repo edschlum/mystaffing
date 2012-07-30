@@ -16,7 +16,6 @@
 		<% current_user.dispos.of_day(@date).each do |truc| %>
 		 	<span class="label label-info"><%= truc.statut.intitule %></span>
 			 <% if truc.comments? %>
-		
 			- <i>"<%= truc.comments %>"</i>
 			<% end %>
 			<br /><br />
