@@ -11,7 +11,7 @@
       <ul>
         <% for dispo in dispos %>	
 			<% if dispo.statut.id == Statut.first.id %>
-          		<li><span class="label label-success">Staffé</span>
+          		<li><span class="label label-success"><%= dispo.statut.intitule %></span>
       				<%= link_to '/myself', options = { :confirm => 'Supprimer cette valeur ?', :method => :delete, :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
 					<i class="icon-remove" title="Supprimer cette valeur"></i>
 					<% end %>
