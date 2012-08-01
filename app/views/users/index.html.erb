@@ -33,7 +33,7 @@
 
         <td>
 			<% user.dispos.of_day(@day).each do |truc| %>	
-				<% if truc.statut.id == 1 %>
+				<% if truc.statut.id == Statut.first!.id %>
 					<% if truc.comments.empty? %>
 						<span class="label label-success"><%= truc.statut.intitule %></span>	
 					<% else %>
@@ -43,7 +43,7 @@
 					<% end %>	
 				<% end %>
 				
-				<% if truc.statut.id == 2 %>
+				<% if truc.statut.id == Statut.first!.id+1 %>
 					<% if truc.comments.empty? %>
 						<span class="label label-important"><%= truc.statut.intitule %></span>
 					<% else %>
@@ -52,7 +52,7 @@
 						<% end %>	
 					<% end %>
 				<% end %>
-				<% if truc.statut.id == 3 %>
+				<% if truc.statut.id == Statut.first!.id+2 %>
 					<% if truc.comments.empty? %>
 						<span class="label label-warning"><%= truc.statut.intitule %></span>
 					<% else %>
@@ -61,7 +61,7 @@
 						<% end %>
 					<% end %>
 				<% end %>
-				<% if truc.statut.id == 4 %>	
+				<% if truc.statut.id == Statut.first!.id+3 %>	
 					<% if truc.comments.empty? %>
 						<span class="label"><%= truc.statut.intitule %></span>
 					<% else %>
