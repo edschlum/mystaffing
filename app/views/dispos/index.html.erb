@@ -10,7 +10,7 @@
       <%= date.day %>
       <ul>
         <% for dispo in dispos %>	
-			<% if dispo.statut.id == Statut.first.id %>
+			<% if dispo.statut.id == 1 %>
           		<li><span class="label label-success"><%= dispo.statut.intitule %></span>
       				<%= link_to '/myself', options = { :confirm => 'Supprimer cette valeur ?', :method => :delete, :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
 					<i class="icon-remove" title="Supprimer cette valeur"></i>
