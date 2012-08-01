@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/controllers/users_controller.rb</string>
+	<string>app/views/home/index.html.erb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -554,14 +554,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>6</integer>
+				<integer>4</integer>
 				<key>line</key>
-				<integer>5</integer>
+				<integer>58</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>12</integer>
 		</dict>
 		<key>app/views/home/untitled.txt</key>
 		<dict>
@@ -833,7 +833,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>13</integer>
+			<integer>0</integer>
 		</dict>
 		<key>config/boot.rb</key>
 		<dict>
@@ -1181,6 +1181,8 @@
 		<string>app/views/users/index.html.erb</string>
 		<string>app/views/user_mailer/password_reset.text.erb</string>
 		<string>config/environment.rb</string>
+		<string>db/schema.rb</string>
+		<string>db/seeds.rb</string>
 		<string>config/boot.rb</string>
 		<string>config/application.rb</string>
 		<string>app/views/layouts/application.html.erb</string>
