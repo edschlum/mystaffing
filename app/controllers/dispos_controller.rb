@@ -35,6 +35,8 @@ class DisposController < ApplicationController
       @dispo.jour = Time.current().in_time_zone('Paris')
     end
     
+    @dispos = Array.new(3) { @current_user.dispo.build }
+    
     @statuts = Statut.all
     @date = params[:day] ? Date.parse(params[:day]) : Time.current().in_time_zone('Paris')
 

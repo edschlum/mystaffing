@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/views/home/index.html.erb</string>
+	<string>app/controllers/dispos_controller.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -222,14 +222,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>25</integer>
+				<integer>43</integer>
 				<key>line</key>
 				<integer>37</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>21</integer>
+			<integer>12</integer>
 		</dict>
 		<key>app/controllers/home_controller.rb</key>
 		<dict>
@@ -331,7 +331,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>54</integer>
+			<integer>0</integer>
 		</dict>
 		<key>app/helpers/about_helper.rb</key>
 		<dict>
@@ -447,7 +447,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>4</integer>
+			<integer>6</integer>
 		</dict>
 		<key>app/views/about/index.html.erb</key>
 		<dict>
@@ -468,14 +468,44 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>15</integer>
 				<key>line</key>
-				<integer>35</integer>
+				<integer>37</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>28</integer>
+			<integer>30</integer>
+		</dict>
+		<key>app/views/dispos/_form.html.erb.old</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>72</integer>
+				<key>line</key>
+				<integer>59</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>18</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>6</integer>
+				<key>line</key>
+				<integer>59</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>72</integer>
+				<key>line</key>
+				<integer>59</integer>
+			</dict>
 		</dict>
 		<key>app/views/dispos/edit.html.erb</key>
 		<dict>
@@ -512,9 +542,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>30</integer>
+				<integer>29</integer>
 				<key>line</key>
-				<integer>14</integer>
+				<integer>12</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -656,30 +686,42 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>1</integer>
+				<integer>21</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>11</integer>
-				<key>line</key>
-				<integer>11</integer>
-			</dict>
-			<key>selectTo</key>
+		</dict>
+		<key>app/views/statuts/edit.html.erb</key>
+		<dict>
+			<key>caret</key>
 			<dict>
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>1</integer>
+				<integer>0</integer>
 			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
-		<key>app/views/statuts/edit.html.erb</key>
+		<key>app/views/statuts/index.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>22</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/views/statuts/new.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
@@ -754,23 +796,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>179</integer>
+				<integer>29</integer>
 				<key>line</key>
-				<integer>2</integer>
+				<integer>63</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>27</integer>
 		</dict>
 		<key>app/views/users/index.xls.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>33</integer>
+				<integer>48</integer>
 				<key>line</key>
-				<integer>36</integer>
+				<integer>52</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -1178,7 +1220,12 @@
 	<array>
 		<string>app/models/user.rb</string>
 		<string>app/views/users/new.html.erb</string>
+		<string>app/views/users/show.html.erb</string>
 		<string>app/views/users/index.html.erb</string>
+		<string>app/views/statuts/show.html.erb</string>
+		<string>app/views/statuts/new.html.erb</string>
+		<string>app/views/statuts/index.html.erb</string>
+		<string>app/views/statuts/_form.html.erb</string>
 		<string>app/views/user_mailer/password_reset.text.erb</string>
 		<string>config/environment.rb</string>
 		<string>db/schema.rb</string>
@@ -1217,6 +1264,7 @@
 		<string>app/views/dispos/edit.html.erb</string>
 		<string>app/views/dispos/show.html.erb</string>
 		<string>app/views/dispos/index.html.erb</string>
+		<string>app/views/dispos/_form.html.erb.old</string>
 		<string>app/views/dispos/_form.html.erb</string>
 		<string>app/views/sessions/new.html.erb</string>
 		<string>config/routes.rb</string>
@@ -1226,6 +1274,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{415, 4}, {1005, 874}}</string>
+	<string>{{383, 4}, {1005, 874}}</string>
 </dict>
 </plist>
